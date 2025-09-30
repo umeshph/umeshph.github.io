@@ -171,7 +171,7 @@ main {
 
 .hero-image-container {
     position: relative;
-    width: 400px; /* Increased size for the image container */
+    width: 400px;
     height: 400px;
     display: flex;
     justify-content: center;
@@ -186,17 +186,15 @@ main {
     z-index: 2;
     position: relative;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-    animation: floatAnimation 3s ease-in-out infinite; /* Added animation */
+    animation: floatAnimation 3s ease-in-out infinite;
 }
 
-/* Keyframes for floating animation */
 @keyframes floatAnimation {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
 
-/* Badges on Hero Image */
 .badge {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.15);
@@ -223,7 +221,6 @@ main {
     transform: rotate(8deg);
 }
 
-/* Abstract Shapes */
 .abstract-shape {
     position: absolute;
     background-color: #00aaff;
@@ -233,8 +230,8 @@ main {
 }
 
 .abstract-shape.circle {
-    width: 180px; /* Adjusted size */
-    height: 180px; /* Adjusted size */
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background-color: #ff8c00;
     top: 50%;
@@ -243,8 +240,8 @@ main {
 }
 
 .abstract-shape.square {
-    width: 120px; /* Adjusted size */
-    height: 120px; /* Adjusted size */
+    width: 120px;
+    height: 120px;
     border-radius: 20px;
     background-color: #9333ea;
     bottom: 20%;
@@ -252,7 +249,6 @@ main {
     transform: rotate(30deg);
 }
 
-/* Styling for Hero Social Links */
 .hero-social-links {
     margin-top: 2.5rem;
     display: flex;
@@ -270,22 +266,15 @@ main {
     transform: scale(1.1);
 }
 
-/* About Section (Modified) */
 .about-container {
     display: flex;
     gap: 3rem;
-    align-items: flex-start; /* Align content to the top */
+    align-items: flex-start;
 }
 
-/* Remove image-specific styling for about page if it was there */
-.profile-pic-container {
-    display: none; /* Hide the image container if it exists */
-}
-
-/* Ensure about content takes full width when no image */
 .about-content.full-width {
     flex-grow: 1;
-    width: 100%; /* Take full width */
+    width: 100%;
 }
 
 .education .edu-item {
@@ -299,7 +288,6 @@ main {
     color: #b0b0b0;
 }
 
-/* Skills Section */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -318,7 +306,6 @@ main {
     color: #00aaff;
 }
 
-/* Projects and Certifications */
 .projects-grid, .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -366,7 +353,6 @@ main {
 .cert-card h4 { margin-bottom: 0.5rem;}
 .cert-card p { margin: 0; color: #888; }
 
-/* Contact and Footer */
 #contact { text-align: center; }
 .contact-info p {
     font-size: 1.1rem;
@@ -381,7 +367,6 @@ footer {
     color: #888;
 }
 
-/* Animation Classes */
 .hidden {
     opacity: 0;
     transform: translateY(30px);
@@ -393,62 +378,6 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    .hero-content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-left {
-        padding-right: 0;
-        margin-bottom: 3rem;
-    }
-    .hero-right {
-        padding-left: 0;
-    }
-    .hero-cta-buttons {
-        justify-content: center;
-    }
-
-    .about-container {
-        flex-direction: column;
-    }
-    .hero h1 { font-size: 2.5rem; }
-    nav ul {
-        display: none;
-    }
-    /* About content should still take full width on small screens without image */
-    .about-content.full-width {
-        width: 100%;
-    }
-}
-@media (max-width: 576px) {
-    .hero-left h1 {
-        font-size: 2.5rem;
-    }
-    .hero-description {
-        font-size: 1rem;
-    }
-    .hero-cta-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .button {
-        width: 100%;
-    }
-    .hero-image-container {
-        width: 280px; /* Slightly adjusted for very small screens */
-        height: 280px;
-    }
-    .role-badge {
-        left: -10%;
-    }
-    .location-badge {
-        right: -15%;
-    }
-}
-
-/* Styling for the 'View Certificate' button */
 .cert-card {
     justify-content: space-between;
 }
@@ -472,4 +401,61 @@ footer {
 .view-cert-button:hover {
     background-color: #00aaff;
     color: #121212;
+}
+
+/* ===== MOBILE RESPONSIVE CHANGES ===== */
+@media (max-width: 992px) {
+    .hero-content-wrapper {
+        flex-direction: column-reverse; /* Puts image on top of text on mobile */
+        text-align: center;
+    }
+    .hero-left {
+        padding-right: 0;
+        margin-top: 3rem; /* Add space between image and text */
+    }
+    .hero-left h1 {
+        font-size: 2.8rem; /* Adjusted font size for mobile */
+    }
+    .hero-right {
+        padding-left: 0;
+    }
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+    .hero-social-links {
+        justify-content: center;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    nav ul {
+        display: none;
+    }
+    .about-content.full-width {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-left h1 {
+        font-size: 2.2rem; /* Further reduce font size for small screens */
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+    .hero-cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .button {
+        width: 100%;
+        padding: 0.7rem 1.5rem; /* Adjust button padding */
+    }
+    .hero-image-container {
+        width: 280px;
+        height: 280px;
+    }
+    .role-badge, .location-badge {
+        display: none; /* Hide badges on small screens to reduce clutter */
+    }
 }
